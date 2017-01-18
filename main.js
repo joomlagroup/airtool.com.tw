@@ -170,4 +170,17 @@ jQuery(document).ready(function(){
 			jQuery(link).addClass("icon-angle-up").removeClass("icon-angle-down");
 		}	
 	});
+	var url_name=window.location.pathname.split('/');
+	url_name=url_name[url_name.length-1];
+	jQuery(".hikashop_subcategories_listing a").each(function(index){
+		var href=jQuery(this).attr('href').split('/');
+		href=href[href.length-1];
+		if(url_name==href){
+			jQuery(this).addClass('link_active');			
+			jQuery(this).parents('li.parent').addClass('active');
+			jQuery(this).parents('li.parent').children('.showsubmenu').addClass("icon-angle-up").removeClass("icon-angle-down");;
+			jQuery(this).parents('li.parent').children("ul").slideDown();
+			return false;
+		}
+	})
 })

@@ -7,9 +7,9 @@
  * @license	GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  */
 defined('_JEXEC') or die('Restricted access');
-?>
-
+?> 
 <?php
+
 if(!function_exists('add_hikashop_childcat')){
     function add_hikashop_childcat($item, $that, $actives){
         if(!empty($item->childs)){
@@ -81,21 +81,6 @@ if(!function_exists('get_hikashop_activecat')){
         }
     }
 }
-global $Itemid;
-						$app = JFactory::getApplication();
-						$menus	= $app->getMenu();
-						$menu	= $menus->getActive();
-						if(empty($menu)){
-							if(!empty($Itemid)){
-								$menus->setActive($Itemid);
-								$menu	= $menus->getItem($Itemid);
-							}
-						}
-$menuClass = hikashop_get('class.menus');
-$menuData = $menuClass->get($menu->id);
-if(!empty($menuData->hikashop_params['selectparentlisting']))
-	$cid = $menuData->hikashop_params['selectparentlisting'];
-	echo $cid;
 $actives = array();
 get_hikashop_activecat($actives, JFactory::getDbo());
 ?>
@@ -185,7 +170,7 @@ if(!empty($this->rows)){
 					if($only_if_products && $row->number_of_products<1) continue;
 					$link = $this->getLink($row);
                     $class = '';
-					echo $row->category_id;
+					
                     if(in_array($row->category_id, $actives)) $class=' current active';
 					?>
 					<li class="<?php if(!empty($row->childs)) echo 'parent'?><?php echo $class; ?>">
