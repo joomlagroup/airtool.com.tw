@@ -6462,3 +6462,6 @@ svg.flex-logo-default.delayed g#flex_after path#f_top {
     padding-top: 0;
   }
 }
+.hikashop_category_list_item a.link_active{
+	color:#22a9e1 !important
+}
